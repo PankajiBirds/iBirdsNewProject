@@ -1,5 +1,4 @@
-<?php
-  echo "Hello World";
+<?php  
   $host='ec2-52-6-75-198.compute-1.amazonaws.com';
   $db = 'dq22oqbhhje8j';
   $username = 'btsgokzekbpgts';
@@ -17,5 +16,10 @@
   }catch (PDOException $e){
     // report error message
     echo $e->getMessage();
+    die();
   }
+  $query = "SELECT * FROM student";
+  $stmt = $conn->query($query);
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  var_dump($result);
 ?>
